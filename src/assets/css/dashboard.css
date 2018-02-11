@@ -1,0 +1,148 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+/* body {
+  padding-top: 50px;
+} */
+
+/*
+ * Typography
+ */
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+.fixed-top {
+  z-index: 999 !important;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+/*
+ * Dashboard
+ */
+
+ /* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+label {
+  margin-bottom: unset;
+}
+
+.nav-header {
+  background-color: #3b78e7 !important;
+}
+
+.nav-pills .nav-link {
+  color: #000000;
+}
+
+.nav-pills .nav-link mat-icon {
+  color: #737373;
+}
+
+.nav-pills .nav-link.active {
+  color: #000000;
+  background-color: #ecf1fa;
+}
+
+.nav-pills .nav-link.active mat-icon {
+  color: #4b84ea;
+}
+
+a.nav-link label {
+  cursor: pointer;
+}
+
+.bg-faded {
+  background-color: #fafafa;
+}
+
+.modal-login {
+  width: 500px;
+}
+
+.modal-crear-nosotros {
+  width: 1050px;
+}
+
+
+.bg-orange{
+  color: #fff !important;
+  background-color: #ec8530 !important;
+  background-image: none;
+  border-color: #ec8530 !important;
+}
+.bg-orange:hover{
+  color: #fff !important;
+  background-color: #ec8530 !important;
+  border-color: #ec8530 !important;
+}
+.bg-orange:active{
+  color: #ec8530 !important;
+  background-color: #fff !important;
+  border-color: #ec8530 !important;
+}
+.bg-orange:focus{ box-shadow: 0 0 0 3px rgba(236, 133, 48, .5)}
+
+.border-drop {
+  border: dashed 4px #888888;
+  width: 100%;
+  min-height: 250px;
+  border-radius: 10px;
+  line-height: 250px;
+}
+
+.image-drop {
+  max-width: 450px;
+  max-height: 250px;
+}
+

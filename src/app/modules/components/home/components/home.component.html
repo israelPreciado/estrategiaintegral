@@ -1,0 +1,25 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top nav-header " style="background: #f9f9f9 !important; border-bottom: 1px solid #e5e5e5 !important">    
+    <a class="navbar-brand" >Estrategia Integral S.A de C.V.</a>    
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar" style="background: #ffffff; border-right: 1px solid #e5e5e5 !important">
+            <ul class="nav flex-column">
+                <li class="nav-item">                       
+                    <a class="nav-link" [routerLink]="['clientes']">
+                        <label class="ml-2">Clientes</label>
+                    </a>
+                </li>  
+                <li class="nav-item">                       
+                    <a class="nav-link" [routerLink]="['proyectos']">
+                        <label class="ml-2">Proyectos</label>
+                    </a>
+                </li>               
+            </ul>            
+        </nav>
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 sidebar p-4" >            
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
