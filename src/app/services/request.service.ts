@@ -11,7 +11,8 @@ export class RequestService {
     public uploadUrl: string;
 
     constructor(private http: Http, private router: Router) {        
-        this.url = new Constant().WS_URL;        
+        this.url = new Constant().WS_URL;  
+        this.uploadUrl = new Constant().WS_URL;       
     }    
 
     getRequest(apiName: string, params?: any) {                

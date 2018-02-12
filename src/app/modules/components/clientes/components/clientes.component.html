@@ -1,1 +1,38 @@
-clientes component
+<form #form="ngForm" class="p-0x">
+    <div class="modal-tam">
+        <input type="file" (change)="detectFiles($event)" #dropFile hidden />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pb-10x">
+                    <h4>Subir avances</h4>
+                </div> 
+            </div>
+            <!-- <div class="row mt-2">
+                <div class="col-12">
+                    <input [(ngModel)]="nombreLogotipo" name="nombre" placeholder="Nombre..." required>
+                </div>                
+            </div> -->
+            <div class="row mt-2">
+                <div class="col">
+                    <div class="border-drop text-center" (drop)="drop($event, 1)" (dragover)="allowDrop($event, 1)" (change)="drop($event, 1)">
+                        <img alt="" [src]="fondoUrl" class="image-drop" *ngIf="fondoUrl" />
+                        <label *ngIf="!fondoUrl">Arrastre la imagen aquí</label>
+                    </div>
+                    <button (click)="selectFile(1)" class="mt-2">
+                        <!-- <mat-icon>collections</mat-icon> -->
+                        <label class="ml-2">Seleccionar</label>
+                    </button> 
+                </div>                       
+            </div>
+            <div class="row mt-3 align-middle text-right">
+                <div class="col-12 ">
+                    <button type="Submit" class="mx-20x" color="primary" (click)="guardar()" [disabled]="!form.valid || spinner">Guardar</button>
+                    <button (click)="cerrarVentana()">Cerrar</button>
+                </div>
+            </div>
+            <div class="loading-indicator" *ngIf="spinner"> 
+                <div class="loader" [style.border-top]="spinner ? '14px solid ' + spinnerColor : '14px solid ' + spinnerColor"></div>    
+            </div> 
+        </div>
+    </div>
+</form>

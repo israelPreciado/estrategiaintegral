@@ -3,9 +3,9 @@
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
-/* body {
-  padding-top: 50px;
-} */
+body {
+  font-family: 'SF UI Display Light','SF UI Text Light', 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, Verdana, sans-serif;
+}
 
 /*
  * Typography
@@ -133,16 +133,52 @@ a.nav-link label {
 }
 .bg-orange:focus{ box-shadow: 0 0 0 3px rgba(236, 133, 48, .5)}
 
-.border-drop {
-  border: dashed 4px #888888;
+.border-drop {  
   width: 100%;
-  min-height: 250px;
-  border-radius: 10px;
-  line-height: 250px;
+  min-height: 130px;
+  border: 1px solid #f2f2f2;
+  background: #fafafa;
+  color: #b2b2b2;
+  font-size: 21px;
+  padding: 10px;
+  border-radius: 3px;
+  line-height: 130px;
 }
 
 .image-drop {
   max-width: 450px;
   max-height: 250px;
 }
+/* Begin Loader */
+.loading-indicator {   
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px; /* Negative half of height. */
+  margin-left: -50px; /* Negative half of width. */    
+}
+
+.loader {
+  border: 14px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 14px solid #3498db;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* End Loader */
 
