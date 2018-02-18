@@ -1,4 +1,4 @@
-<form #form="ngForm" class="p-0x">
+<!-- <form #form="ngForm" class="p-0x">
     <div class="modal-tam">
         <input type="file" (change)="detectFiles($event)" #dropFile hidden />
         <div class="container-fluid">
@@ -29,7 +29,13 @@
             </div> 
         </div>
     </div>
-</form>
+</form> -->
+
+<div class="row">
+    <div class="col p-2 d-flex justify-content-end mr-5">
+        <button type="button" class="btn btn-outline-info" data-dismiss="modal" data-toggle="modal" data-target="#crearEditarCliente">Agregar cliente</button>  
+    </div>
+</div>
 
 <div class="row m-2 p-3" style="border-bottom: 1px solid #e5e5e5">
     <div class="col">Regio Traslados Poza Rica</div>
@@ -54,3 +60,140 @@
       </button>
     </div>
   </div>
+
+<!-- Modal crear cliente nuevo -->
+<div class="modal fade bd-example-modal-lg" id="crearEditarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear nuevo cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="nombre" class="col-form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="form-group">
+              <label for="ap-paterno" class="col-form-label">Apellido Paterno:</label>
+              <input type="text" class="form-control" id="ap-paterno">
+            </div>
+            <div class="form-group">
+              <label for="ap-materno" class="col-form-label">Apellido Materno:</label>
+              <input type="text" class="form-control" id="ap-materno">
+            </div>
+            <div class="form-group">
+              <label for="rfc" class="col-form-label">RFC:</label>
+              <input type="text" class="form-control" id="rfc">
+            </div>
+            <div class="form-group">
+              <label for="direccion" class="col-form-label">Direccion:</label>
+              <input type="text" class="form-control" id="direccion">
+            </div>
+            <div class="form-group">
+              <label for="telefono" class="col-form-label">Telefono:</label>
+              <input type="text" class="form-control" id="telefono">
+            </div>
+            <div class="form-group">
+              <label for="celular" class="col-form-label">Celular:</label>
+              <input type="text" class="form-control" id="celular">
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email:</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- Fin Moldal crear cliente nuevo -->
+  
+  
+  <!-- Modal crear usuarios -->
+  <div class="modal fade bd-example-modal-lg" id="crearUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+          </form>
+          <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-outline-primary">Guardar/Reactivar</button>
+            <button type="button" class="btn btn-outline-success">Nuevo Usuario</button>
+            <button type="button" class="btn btn-outline-warning">Cancelar/Suspender</button>
+            <button type="button" class="btn btn-outline-danger">Eliminar</button>
+          </div>       
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Modal crear usuarios -->
+  
+  
+  <!-- Modal crear proyecto -->
+  <div class="modal fade" id="crearProyecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Crear Proyecto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="nombreProyecto" placeholder="Nombre del Proyecto...">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Grabar</button>
+          <button type="button" class="btn btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Fin Modal crear proyecto -->
+  
+  
+  <!-- Modal eliminar cliente -->
+  <div class="modal fade" id="eliminarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Desea eliminar el cliente?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Eliminar</button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Modal eliminar cliente -->
