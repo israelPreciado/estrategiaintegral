@@ -1,43 +1,10 @@
-<div mat-dialog-title>Crear tarea</div>
-<mat-dialog-content class="crm-buscar">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">                
-                <textarea #txMsg class="autocomplete w-100" name="search" [(ngModel)]="inputValue" (keyup.enter)="onSubmit()"></textarea> 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <ng-container *ngIf="shortcutQuery">
-                    <div class="result">
-                        Responsable: {{shortcutQuery.responsable}}
-                        <ng-container *ngIf="shortcutQuery.cias">
-                            <ng-container *ngFor="let cia of shortcutQuery.cias">
-                                    Cias: {{cia.cia}}
-                            </ng-container>                            
-                        </ng-container>
-                        
-                    </div>
-                </ng-container>
-            </div>
-        </div>
-    </div>
-</mat-dialog-content>
-<mat-dialog-actions class="float-right">
-    <button type="Submit" mat-raised-button color="primary" (click)="save()">Guardar</button>
-    <button mat-button mat-dialog-close>Cerrar</button>
-</mat-dialog-actions>
-<!-- 
-<div class="container-fluid">
-    <div class="row">
-        <h5>Crear nuevo cliente</h5>
-          <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-    </div>
+<div class="container-fluid">    
     <div class="row">
         <div class="col">
             <form>
+                <div class="form-group">
+                        <h5>Crear nuevo cliente</h5>    
+                </div>
                 <div class="form-group">
                   <label for="nombre" class="col-form-label">Nombre:</label>
                   <input type="text" class="form-control" id="nombre">
@@ -79,4 +46,4 @@
             <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Guardar</button>
         </div>
     </div>
-</div> -->
+</div>

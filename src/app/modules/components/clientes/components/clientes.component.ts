@@ -1,7 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { RequestService } from '../../../../services/request.service';
-import { MatDialog } from '@angular/material';
-import { PruebaModalComponent } from '../../prueba-modal/prueba-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'clientes',
@@ -27,7 +26,7 @@ export class ClientesComponent {
 
     @ViewChild('dropFile') nativeInputFile: ElementRef;
 
-    constructor(private requestService: RequestService, private dialog: MatDialog) {}
+    constructor(private requestService: RequestService, private router: Router) {}
 
     selectFile(obj) {
         this.object = obj;
@@ -91,10 +90,7 @@ export class ClientesComponent {
     }
 
     openPruebaModal() {
-        let dialogRef = this.dialog.open(PruebaModalComponent, {disableClose: true});
-        dialogRef.afterClosed().subscribe(result => {
-            console.log(this.TAG, "ventana prueba modal cerrada");
-        });
+        this.router.navigate(['inicio/form-cliente']);        
     }
 
     guardar() {
