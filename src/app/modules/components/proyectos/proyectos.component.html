@@ -3,3 +3,14 @@
         {{fileUpload.tipo}} - {{fileUpload.nombre}} - {{fileUpload.fecha}}
     </li>
 </ul>
+
+<div class="container">
+    <div *ngFor="let fileUpload of fileUploads" class="row align-items-center borde-files">
+      <div class="col">
+        <a href=""><img src="/assets/images/progress.png" alt="Ver avances"></a>
+      </div>
+      <div class="col-11">        
+        <a href="" class="titulo-file" style="text-decoration: none;">Oficinas Poza Rica Veracruz</a>
+      </div>
+    </div>
+  </div>

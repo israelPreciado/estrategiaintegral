@@ -1,2 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+
+.titulo-mes {
+    color: #3d464d; 
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 2rem;
+}
+
+.titulo-file {
+    text-decoration: none;
+    color: #3d464d;
+}
+
+.fecha-file {
+    text-decoration: none;
+    color: #637282;
+    font-size: 14px;
+}
+
+.borde-files {
+    border-bottom: 1px solid #e5e5e5;
+    height: 5rem;
+}
 
