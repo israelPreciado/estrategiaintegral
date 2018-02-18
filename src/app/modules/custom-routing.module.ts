@@ -10,7 +10,7 @@ const customRoutes: Routes = [
         path: 'inicio',
         component: HomeComponent,
         children: [
-            { path: '', redirectTo: 'inicio', pathMatch: 'full'},
+            { path: '', redirectTo: 'clientes', pathMatch: 'full'},
             { path: 'clientes', component: ClientesComponent },
             { path: 'proyectos', component: ProyectosComponent }
         ]

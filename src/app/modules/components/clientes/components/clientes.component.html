@@ -6,20 +6,14 @@
                 <div class="col-12 pb-10x">
                     <h4>Subir avances</h4>
                 </div> 
-            </div>
-            <!-- <div class="row mt-2">
-                <div class="col-12">
-                    <input [(ngModel)]="nombreLogotipo" name="nombre" placeholder="Nombre..." required>
-                </div>                
-            </div> -->
+            </div>            
             <div class="row mt-2">
                 <div class="col">
                     <div class="border-drop text-center" (drop)="drop($event, 1)" (dragover)="allowDrop($event, 1)" (change)="drop($event, 1)">
                         <img alt="" [src]="fondoUrl" class="image-drop" *ngIf="fondoUrl" />
                         <label *ngIf="!fondoUrl">Arrastre la imagen aquí</label>
                     </div>
-                    <button (click)="selectFile(1)" class="mt-2">
-                        <!-- <mat-icon>collections</mat-icon> -->
+                    <button (click)="selectFile(1)" class="mt-2">                        
                         <label class="ml-2">Seleccionar</label>
                     </button> 
                 </div>                       
@@ -36,3 +30,27 @@
         </div>
     </div>
 </form>
+
+<div class="row m-2 p-3" style="border-bottom: 1px solid #e5e5e5">
+    <div class="col">Regio Traslados Poza Rica</div>
+    <div class="col-1 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-light" data-dismiss="modal" title="Usuarios" data-toggle="modal" data-target="#crearUsuario">
+        <img src="/assets/images/user.png" width="20" height="20" alt="">
+      </button>
+    </div>
+    <div class="col-1 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-light" data-dismiss="modal" title="Editar" data-toggle="modal" data-target="#crearEditarCliente">
+        <img src="/assets/images/edit.png" width="20" height="20" alt="">
+      </button>
+    </div>
+    <div class="col-1 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-light" title="Proyectos">
+        <img src="/assets/images/folder.png" width="20" height="20" alt="">
+      </button>
+    </div>
+    <div class="col-1 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-light" data-dismiss="modal" title="Eliminar" data-toggle="modal" data-target="#eliminarCliente">
+        <img src="/assets/images/eliminar.png" width="20" height="20" alt="">
+      </button>
+    </div>
+  </div>
