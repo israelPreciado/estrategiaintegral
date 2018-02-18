@@ -1,0 +1,8 @@
+.crm-buscar{
+    width: 800px;
+    height: 500px;
+}
+.autocomplete {
+    min-height: 54px;
+    max-height: 160px;
+}
