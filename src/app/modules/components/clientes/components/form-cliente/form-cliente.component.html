@@ -1,49 +1,51 @@
-<div class="container-fluid">    
-    <div class="row">
+<div class="container-fluid custom-container">
+    <div class="row navigation-state d-flex align-items-center">
         <div class="col">
-            <form>
+            <a routerLink="/inicio/clientes">Clientes</a> / {{title}}
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <form>                
                 <div class="form-group">
-                        <h5>Crear nuevo cliente</h5>    
+                    <label for="nombre" class="col-form-label">Nombre:</label>
+                    <input type="text" class="form-control" name="itemNombre" [(ngModel)]="itemNombre">
                 </div>
                 <div class="form-group">
-                  <label for="nombre" class="col-form-label">Nombre:</label>
-                  <input type="text" class="form-control" id="nombre">
+                    <label for="ap-paterno" class="col-form-label">Apellido Paterno:</label>
+                    <input type="text" class="form-control" name="itemApPat" [(ngModel)]="itemApPat">
                 </div>
                 <div class="form-group">
-                  <label for="ap-paterno" class="col-form-label">Apellido Paterno:</label>
-                  <input type="text" class="form-control" id="ap-paterno">
+                    <label for="ap-materno" class="col-form-label">Apellido Materno:</label>
+                    <input type="text" class="form-control" name="itemApMat" [(ngModel)]="itemApMat">
                 </div>
                 <div class="form-group">
-                  <label for="ap-materno" class="col-form-label">Apellido Materno:</label>
-                  <input type="text" class="form-control" id="ap-materno">
+                    <label for="rfc" class="col-form-label">RFC:</label>
+                    <input type="text" class="form-control" name="itemRfc" [(ngModel)]="itemRfc">
                 </div>
                 <div class="form-group">
-                  <label for="rfc" class="col-form-label">RFC:</label>
-                  <input type="text" class="form-control" id="rfc">
+                    <label for="direccion" class="col-form-label">Direccion:</label>
+                    <input type="text" class="form-control" name="itemDireccion" [(ngModel)]="itemDireccion">
                 </div>
                 <div class="form-group">
-                  <label for="direccion" class="col-form-label">Direccion:</label>
-                  <input type="text" class="form-control" id="direccion">
+                    <label for="telefono" class="col-form-label">Telefono:</label>
+                    <input type="text" class="form-control" name="itemTel" [(ngModel)]="itemTel">
                 </div>
                 <div class="form-group">
-                  <label for="telefono" class="col-form-label">Telefono:</label>
-                  <input type="text" class="form-control" id="telefono">
+                    <label for="celular" class="col-form-label">Celular:</label>
+                    <input type="text" class="form-control" name="itemCelular" [(ngModel)]="itemCelular">
                 </div>
                 <div class="form-group">
-                  <label for="celular" class="col-form-label">Celular:</label>
-                  <input type="text" class="form-control" id="celular">
-                </div>
-                <div class="form-group">
-                  <label for="email" class="col-form-label">Email:</label>
-                  <input type="email" class="form-control">
+                    <label for="email" class="col-form-label">Email:</label>
+                    <input type="email" class="form-control" name="itemEmail" [(ngModel)]="itemEmail">
                 </div>
               </form>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Guardar</button>
+            <button type="button" class="btn btn-outline-danger" >Cancelar</button>
+            <button type="button" class="btn btn-outline-primary" (click)="doSave()">Guardar</button>
         </div>
     </div>
 </div>

@@ -34,19 +34,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col p-2 d-flex justify-content-end mr-5">
-      <button type="button" class="btn btn-outline-info" (click)="openPruebaModal()">Agregar cliente</button>
+      <button type="button" class="btn btn-outline-info" [routerLink]="['/inicio/form-cliente']" [queryParams]="{id:0}">Agregar cliente</button>
     </div>
-  </div>
-  
+  </div>  
   <div class="row m-2 p-3" style="border-bottom: 1px solid #e5e5e5">
     <div class="col">Regio Traslados Poza Rica</div>
     <div class="col-1 d-flex justify-content-center">
-      <button type="button" class="btn btn-outline-light" data-dismiss="modal" title="Usuarios" data-toggle="modal" data-target="#crearUsuario">
+      <button type="button" class="btn btn-outline-light" title="Usuarios">
         <img src="/assets/images/user.png" width="20" height="20" alt="">
       </button>
     </div>
     <div class="col-1 d-flex justify-content-center">
-      <button type="button" class="btn btn-outline-light" data-dismiss="modal" title="Editar" data-toggle="modal" data-target="#crearEditarCliente">
+      <button type="button" class="btn btn-outline-light" title="Editar" [routerLink]="['/inicio/form-cliente']" [queryParams]="{id:1}">
         <img src="/assets/images/edit.png" width="20" height="20" alt="">
       </button>
     </div>
@@ -56,7 +55,7 @@
       </button>
     </div>
     <div class="col-1 d-flex justify-content-center">
-      <button type="button" class="btn btn-outline-light" data-dismiss="modal" title="Eliminar" data-toggle="modal" data-target="#eliminarCliente">
+      <button type="button" class="btn btn-outline-light" title="Eliminar">
         <img src="/assets/images/eliminar.png" width="20" height="20" alt="">
       </button>
     </div>
