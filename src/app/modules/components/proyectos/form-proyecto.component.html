@@ -1,0 +1,26 @@
+<div class="container-fluid custom-container">
+    <div class="row navigation-state d-flex align-items-center">
+        <div class="col">            
+            <a class="color-link" routerLink="/inicio/clientes">Clientes</a> / <a class="color-link" routerLink="/inicio/proyectos" [queryParams]="{cid: clienteId, nombre: nombreCliente}">{{nombreCliente}}</a> / {{title}}
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <form>                
+                <div class="form-group">
+                    <label for="nombre" class="col-form-label">Nombre:</label>
+                    <input type="text" class="form-control" name="itemNombre" [(ngModel)]="itemNombre">
+                </div>                              
+              </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-outline-danger" routerLink="/inicio/proyectos" [queryParams]="{cid: clienteId, nombre: nombreCliente}">Cancelar</button>
+            <button type="button" class="btn btn-outline-primary" (click)="doSave()" [disabled]="spinner">Guardar</button>
+        </div>
+    </div>
+    <div class="loading-indicator" *ngIf="spinner"> 
+        <div class="loader"></div>    
+    </div>
+</div>

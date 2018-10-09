@@ -22,7 +22,7 @@ import { CustomModule } from './modules/custom.module';
     HttpModule,
     BrowserAnimationsModule,
     routing,
-    CustomModule
+    CustomModule        
   ],
   providers: [
     appRoutingProviders

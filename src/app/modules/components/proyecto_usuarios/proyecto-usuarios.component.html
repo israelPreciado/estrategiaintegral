@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row navigation-state d-flex align-items-center">
+        <div class="col">
+            <a class="color-link" routerLink="/inicio/clientes">Clientes</a> / <a class="color-link" routerLink="/inicio/proyectos" [queryParams]="{cid: clienteId, nombre: nombreCliente}">{{nombreCliente}}</a> / {{title}}
+        </div>
+        <div class="col-2 p-2 d-flex justify-content-end mr-5">
+            <button type="button" class="btn btn-outline-info" [routerLink]="['/inicio/usuarios']" [queryParams]="{cid: clienteId, pid: proyectoId, nombre: nombreCliente, proyecto: title}">Agregar usuario</button>
+        </div>
+    </div>     
+    <div class="row m-2 p-3 mb-1 listado" *ngFor="let proyectoUsuario of proyectosUsuarios">
+        <div class="col-1">
+            <img src="/assets/images/ei-cliente.png" class="img-avance" alt="Eliminar usuario">
+        </div>
+        <div class="col">            
+            <div class="color-link">{{proyectoUsuario.usuario}}</div>              
+        </div>
+        <div class="col-1 d-flex justify-content-center" *ngIf="!mostrarUsuario">            
+            <img src="/assets/images/ei-delete.png" alt="" class="img-avance" (click)="onPreEliminar(proyectoUsuario.proyecto_usuario_id, proyectoUsuario.usuario_id)">            
+        </div>
+        <div class="col-2 d-flex justify-content-center" *ngIf="eliminar">                  
+            <button class="btn btn-outline-dark btn-sm mr-1" (click)="eliminar=false" (click)="onCancelar()">Cancelar</button>
+            <button class="btn btn-outline-danger btn-sm" (click)="eliminar=false" (click)="onEliminar()">Eliminar</button>
+        </div>
+    </div>
+    <div class="loading-indicator" *ngIf="spinner"> 
+        <div class="loader"></div>    
+    </div>
+</div>

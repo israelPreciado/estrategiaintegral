@@ -44,8 +44,11 @@
     </div>
     <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-outline-danger" >Cancelar</button>
-            <button type="button" class="btn btn-outline-primary" (click)="doSave()">Guardar</button>
+            <button type="button" class="btn btn-outline-danger" routerLink="/inicio/clientes">Cancelar</button>
+            <button type="button" class="btn btn-outline-primary" (click)="doSave()" [disabled]="spinner">Guardar</button>
         </div>
+    </div>
+    <div class="loading-indicator" *ngIf="spinner"> 
+        <div class="loader"></div>    
     </div>
 </div>

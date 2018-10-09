@@ -163,7 +163,7 @@ a.nav-link label {
 .loader {
   border: 14px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 14px solid #3498db;
+  border-top: 14px solid #db7134;
   width: 100px;
   height: 100px;
   -webkit-animation: spin 1s linear infinite; /* Safari */

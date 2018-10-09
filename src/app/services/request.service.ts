@@ -9,10 +9,12 @@ import { Router } from "@angular/router";
 export class RequestService {
     public url: string;
     public uploadUrl: string;
+    private apiKey: string;
 
     constructor(private http: Http, private router: Router) {        
         this.url = new Constant().WS_URL;  
-        this.uploadUrl = new Constant().WS_URL;       
+        this.uploadUrl = new Constant().WS_URL;  
+        this.apiKey = new Constant().API_KEY;     
     }    
 
     getRequest(apiName: string, params?: any) {                
@@ -26,8 +28,10 @@ export class RequestService {
             }
             if (queryString != "") {
                 queryString.substring(1);
-                parameters += "?" + queryString;
+                parameters += "?api_key=" + this.apiKey + queryString;
             } 
+        } else {
+            parameters += "?api_key=" + this.apiKey;
         }
         console.log("url", this.url + apiName + parameters);
 

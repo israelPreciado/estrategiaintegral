@@ -1,12 +1,12 @@
 export class FileUpload {
-    public fileId: number;
+    public file_id: number;
     public tipo: string;
     public nombre: string;
     public url: string;
     public fecha: string;
 
-    constructor(fielId: number, tipo: string, nombre: string, url: string, fecha: string) {
-        this.fileId = fielId;
+    constructor(file_id: number, tipo: string, nombre: string, url: string, fecha: string) {
+        this.file_id = file_id;
         this.tipo = tipo;
         this.nombre = nombre;
         this.url = url;

@@ -7,7 +7,7 @@ import { RequestService } from '../../../../services/request.service';
     providers: [RequestService]
 })
 export class FileUploadComponent {
-    private TAG: string = "FileUploadComponent"
+    public TAG: string = "FileUploadComponent"
     public titulo: string;
     public nombreLogotipo: string = "";
     public ancho: any = 0;
@@ -19,8 +19,7 @@ export class FileUploadComponent {
     public imageUrl: string = "";
     public imageThumbUrl: string = "";
     public editar: boolean;
-    public spinner: boolean = false;    
-    public spinnerColor: string = "#3498db";
+    public spinner: boolean = false;        
     dataImagen:any = [];
 
     @ViewChild('dropFile') nativeInputFile: ElementRef;
@@ -32,24 +31,14 @@ export class FileUploadComponent {
         this.nativeInputFile.nativeElement.click();
     }
 
-    detectFiles(event, obj) {
-        if (obj) {
-            this.object = obj;
-        }
+    detectFiles(event) {        
         this.selectedFiles = event.target.files;
         //console.log("selectedFiles", this.selectedFiles);
         var reader = new FileReader();
         reader.onload = (myevent) => {
             console.log("myevent", myevent);
             console.log("aqui", reader.result);
-            switch (this.object) {
-                case 1:
-                    this.fondoUrl = reader.result;
-                    break;
-                case 2:
-                    this.fondoUrl = reader.result;
-                    break;
-            }
+            this.fondoUrl = reader.result;
         }
         reader.readAsDataURL(event.target.files[0]);
         //console.log("event.target.files[0]", event.target.files[0]);

@@ -5,6 +5,14 @@
     overflow-y: auto;
 }
 
+.bg-ei {
+    background: #F2F5F7;
+} 
+
+.bg-white {
+    background: #ffffff;
+}
+
 .titulo-mes {
     color: #3d464d; 
     border-bottom: 1px solid #e5e5e5;
@@ -16,19 +24,62 @@
     color: #3d464d;
 }
 
-.fecha-file {
-    text-decoration: none;
+.fecha-file {    
     color: #637282;
     font-size: 14px;
 }
 
 .borde-files {
-    border-bottom: 1px solid #e5e5e5;
+    /* border-bottom: 1px solid #e5e5e5; */
+    border-radius: 3px;
     height: 5rem;
+}
+
+.listado {
+    background: #ffffff;
+    border-radius: 3px;
 }
 
 .color-ei {
     /* color: #FF8900 !important; */
-    color: red !important;
+    /* color: #17a2b8 !important; */
+    color: rgb(186, 221, 235) !important;
+}
+.color-link {
+    color: #17a2b8;
+    cursor: pointer;    
+}
+.color-link:hover {   
+    color: #17a2b8;
+    text-decoration: none;
+}
+.color-link-disabled {
+    color: #444444;
+    cursor: pointer;    
+}
+.color-link-disabled:hover {   
+    color: #444444;
+    text-decoration: none;
+}
+.color-white {
+    color: #ffffff !important;
+}
+.custom-container {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+}
+.navigation-state {    
+    border-bottom: 1px solid #f2f2f2;    
+    height: 50px;
+}
+.img-avance {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.slider {    
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
 }
 

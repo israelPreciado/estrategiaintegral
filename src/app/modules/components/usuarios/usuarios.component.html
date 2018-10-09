@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row navigation-state d-flex align-items-center" *ngIf="timeLine">
+        <div class="col">
+            <a class="color-link" routerLink="/inicio/clientes">Clientes</a> / <a class="color-link" routerLink="/inicio/proyectos" [queryParams]="{cid: clienteId, nombre: nombreCliente}">{{nombreCliente}}</a> / <a class="color-link" routerLink="/inicio/proyecto-usuarios" [queryParams]="{cid: clienteId, pid: proyectoId, nombre: nombreCliente, proyecto: nombreProyecto}">{{nombreProyecto}}</a> / {{title}}
+        </div>        
+    </div>
+    <form>
+        <div class="form-group col-7">
+          <input type="email" class="form-control" name="email" placeholder="correo@ejemplo.com" [(ngModel)]="inputUsuario">
+        </div>
+        <div class="form-group col-7">
+          <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="inputPass">
+        </div>
+    </form>
+    <div class="col-7 d-flex justify-content-between mb-5">
+        <button type="button" class="btn btn-outline-info" (click)="onGuardarReactivar()" [disabled]="disabled">Guardar/Reactivar</button>
+        <button type="button" class="btn btn-outline-success" (click)="nuevoUsuario()" [disabled]="disabled">Nuevo Usuario</button>
+        <button type="button" class="btn btn-outline-warning" (click)="cancelarSuspender()" [disabled]="disabled">Cancelar/Suspender</button>
+        <!-- <button type="button" class="btn btn-outline-danger" (click)="onEliminar()">Eliminar</button> -->
+    </div>
+
+    <div *ngFor="let usuario of usuarios" class="row m-2 p-3 mb-1 listado">
+        <div class="col-1">
+            <img src="/assets/images/ei-cliente.png" class="img-avance" alt="">            
+        </div>
+        <div class="col">            
+            <div class="col">
+                <label [ngClass]="[usuario.status ? 'color-link' : 'color-link-disabled']" (click)="onUsuario(usuario)">
+                    <ng-container *ngIf="usuario.status">{{usuario.usuario}}</ng-container>
+                    <ng-container *ngIf="!usuario.status">{{usuario.usuario}} (desactivado)</ng-container>
+                </label>
+            </div>
+        </div>
+        <div class="col-1 d-flex justify-content-center">            
+            <img src="/assets/images/ei-edit.png" class="img-avance" alt="Editar usuario" (click)="onEdit(usuario)">
+        </div>
+    </div>
+    <div class="loading-indicator" *ngIf="disabled"> 
+        <div class="loader"></div>    
+    </div>
+</div>
+ 

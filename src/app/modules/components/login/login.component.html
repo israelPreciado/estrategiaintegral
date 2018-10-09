@@ -1,0 +1,14 @@
+<div class="container-fluid bg-ei slider d-flex justify-content-center align-items-center img-fluid">
+    <div class="row bg-white p-4 border-form" style="-webkit-box-shadow: 0px 0px 21px 0px rgba(176,164,176,1);
+    -moz-box-shadow: 0px 0px 21px 0px rgba(176,164,176,1);
+    box-shadow: 0px 0px 21px 0px rgba(176,164,176,1);">
+        <form #form="ngForm" class="form-signin">
+            <div class="mb-4 d-flex justify-content-center">
+                <img  src="/assets/images/logo.png" alt="Estrategia Integral">
+            </div>                
+            <input type="text" name="inputEmail" class="form-control" placeholder="Email" [(ngModel)]="inputUsuario" required autofocus style="width: 400px"> <br>
+            <input type="password" name="inputPassword" class="form-control" placeholder="Password" [(ngModel)]="inputPass" required style="width: 400px"> <br>       
+            <button type="submit" class="btn btn-lg btn-dark btn-block mb-2" style="background: #fb8c00; border: #fb8c00" [disabled]="!form.valid || !enable" (click)="signIn()">Sign in</button>
+        </form>
+    </div>   
+</div>
