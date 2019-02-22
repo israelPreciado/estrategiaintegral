@@ -13,13 +13,20 @@
             <div class="col">
                 <form #form="ngForm" class="p-0x">
                     <div class="modal-tam">
-                        <input type="file" #dropFile accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.dwg" (change)="detectFiles($event)" hidden />
+                        <input type="file" #dropFile accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.dwg" (change)="detectFiles($event)" multiple hidden />
                         <div class="container-fluid">                          
                             <div class="row mt-2">
                                 <div class="col">
-                                    <div class="border-drop text-center" (drop)="drop($event)" (dragover)="allowDrop($event)" (change)="drop($event)">
-                                        <img alt="" [src]="fondoUrl" class="image-drop" *ngIf="fondoUrl" />
-                                        <label *ngIf="!fondoUrl">Arrastre el archivo aquí</label>
+                                    <div class="text-center" [ngClass]="textFileUploads.length > 1 ? 'upload-multiple' : 'border-drop'" (drop)="drop($event)" (dragover)="allowDrop($event)" (change)="drop($event)">
+                                        <ng-container *ngIf="textFileUploads.length > 0; else singleUpload">                                            
+                                            <ng-container *ngFor="let file of textFileUploads">
+                                                <div class="text-file w-100">{{file.name}}</div>                                                
+                                            </ng-container>
+                                        </ng-container>
+                                        <ng-template #singleUpload>
+                                            <img alt="" [src]="fondoUrl" class="image-drop" *ngIf="fondoUrl" />
+                                            <label *ngIf="!fondoUrl">Arrastre los archivos aquí</label>
+                                        </ng-template>                                        
                                     </div>                           
                                 </div>                       
                             </div>

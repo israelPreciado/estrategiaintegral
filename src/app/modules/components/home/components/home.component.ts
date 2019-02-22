@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             ];
             this.requestService.getRequest("listado-file-uploads", data).subscribe(
                 result => {
-                    console.log(this.TAG, result);
+                    //console.log(this.TAG, result);
                     this.fileUploads = result;                                                  
                 },
                 error => {

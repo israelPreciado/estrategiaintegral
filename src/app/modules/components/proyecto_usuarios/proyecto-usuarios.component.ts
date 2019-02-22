@@ -23,8 +23,7 @@ export class ProyectoUsuariosCoponent implements OnInit {
 
     constructor(private requestService: RequestService, private route: ActivatedRoute) {}
 
-    ngOnInit() {
-        console.log('aqui mero');
+    ngOnInit() {        
         if (this.route.snapshot.queryParams["cid"]) {
             if (parseInt(this.route.snapshot.queryParams["cid"]) > 0) {
                 this.clienteId = this.route.snapshot.queryParams["cid"];
@@ -56,7 +55,7 @@ export class ProyectoUsuariosCoponent implements OnInit {
         ];
         this.requestService.getRequest("listado-proyectos-usuarios", data).subscribe(
             result => {
-                console.log(this.TAG, result);
+                //console.log(this.TAG, result);
                 this.proyectosUsuarios = result;  
                 this.spinner = false;                     
             },

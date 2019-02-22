@@ -55,7 +55,7 @@ export class FormProyectoComponent implements OnInit {
             ];
             this.requestService.getRequest("listado-proyectos", data).subscribe(
             response => {
-                console.log(this.TAG, response);
+                //console.log(this.TAG, response);
                 if (response.error) {
                     alert(response.error);
                 } else {

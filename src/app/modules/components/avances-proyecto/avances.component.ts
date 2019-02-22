@@ -8,6 +8,7 @@ import { EICommonService } from '../../services/common.service';
 @Component({
   selector: 'avances-proyecto',
   templateUrl: './avances.component.html',
+  styleUrls: ['./avances.component.css'],
   providers: [RequestService]
 })
 export class AvancesComponent implements OnInit {
@@ -32,6 +33,7 @@ export class AvancesComponent implements OnInit {
     public spinner: boolean = false;        
     dataImagen:any = [];
     public fileUploads = Array<FileUpload>();
+    public textFileUploads = Array<any>();
     public eliminar = false;  
     public procesando = false; 
 
@@ -94,7 +96,7 @@ export class AvancesComponent implements OnInit {
             ];
             this.requestService.getRequest("listado-file-uploads", data).subscribe(
                 result => {
-                    console.log(this.TAG, result);
+                    //console.log(this.TAG, result);
                     this.fileUploads = result;  
                     this.spinner = false;   
                     this.procesando = false;                          
@@ -114,104 +116,14 @@ export class AvancesComponent implements OnInit {
         this.nativeInputFile.nativeElement.click();
     }
 
-    detectFiles(event) {                
-        var reader = new FileReader();
-        if (event.target.files && event.target.files.length > 0) {
-            let allow = false;
-            let file: File = event.target.files[0];
-            let fileExtension = "";
-            let arrFileName = file.name.split(".");
-            for (let i = 0; i < arrFileName.length; i++) {
-                fileExtension = arrFileName[i];
-            }
-
-            for (let i = 0; i < this.extensionsAllowed.length; i++) {
-                console.log('extensionAllowed', this.extensionsAllowed[i]);
-                if (fileExtension == this.extensionsAllowed[i]) allow = true;
-            }
-
-            if (allow) {
-                this.selectedFiles = event.target.files;                        
-                reader.readAsDataURL(file);
-                reader.onload = (myevent) => {
-                    //console.log("myevent", myevent);                                
-                    console.log("fileExtension", fileExtension);
-                    console.log("file.type", file.name);
-                    switch(fileExtension) {
-                        case 'doc': case 'docx':
-                            this.fondoUrl = "/assets/images/doc.png";
-                            break;
-                        case 'pdf':
-                            this.fondoUrl = "/assets/images/pdf.png";
-                            break;
-                        case 'xls': case 'xlsx':
-                            this.fondoUrl = "/assets/images/xls.png";
-                            break;
-                        case "ppt": case "pptx":
-                            this.fondoUrl = "/assets/images/ppt.png";
-                            break;
-                        case "dwg":
-                            this.fondoUrl = "/assets/images/dwg.png";
-                            break;
-                        default:
-                            this.fondoUrl = reader.result;
-                    }
-                }
-            } else {
-                alert("Tipo no permitido");
-            }             
-        }        
+    detectFiles(event) { 
+        this.processFiles(event.target);    
     }
 
     drop(event) {                
         event.stopPropagation();
         event.preventDefault();
-        var reader = new FileReader();
-        if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
-            let allow = false;
-            let file: File = event.dataTransfer.files[0];
-            let fileExtension = "";
-            let arrFileName = file.name.split(".");
-            for (let i = 0; i < arrFileName.length; i++) {
-                fileExtension = arrFileName[i];
-            }
-
-            for (let i = 0; i < this.extensionsAllowed.length; i++) {
-                console.log('extensionAllowed', this.extensionsAllowed[i]);
-                if (fileExtension == this.extensionsAllowed[i]) allow = true;
-            }
-
-            if (allow) {
-                this.selectedFiles = event.dataTransfer.files;            
-                reader.readAsDataURL(file);
-                reader.onload = (myevent) => {
-                    //console.log("myevent", myevent);                                    
-                    console.log("fileExtension", fileExtension);
-                    console.log("file.type", file.name);
-                    switch(fileExtension) {
-                        case 'doc': case 'docx':
-                            this.fondoUrl = "/assets/images/doc.png";
-                            break;
-                        case 'pdf':
-                            this.fondoUrl = "/assets/images/pdf.png";
-                            break;
-                        case 'xls': case 'xlsx':
-                            this.fondoUrl = "/assets/images/xls.png";
-                            break;
-                        case "ppt": case "pptx":
-                            this.fondoUrl = "/assets/images/ppt.png";
-                            break;
-                        case "dwg":
-                            this.fondoUrl = "/assets/images/dwg.png";
-                            break;
-                        default:
-                            this.fondoUrl = reader.result;
-                    }
-                }
-            } else {
-                alert("Tipo no permitido");
-            }           
-        }
+        this.processFiles(event.dataTransfer);
     }
 
     allowDrop(event) {        
@@ -220,69 +132,134 @@ export class AvancesComponent implements OnInit {
         event.dataTransfer.dropEffect = 'copy';
     }
 
+    processFiles(target: any) {
+        
+        console.log('target.files.length', target.files.length);
+        if (target.files && target.files.length > 0) {
+            this.textFileUploads = [];
+
+            for(let i = 0; i < target.files.length; i++) {
+                var reader = new FileReader();
+                let allow = false;
+                let file: File = target.files[i];
+                let fileExtension = "";
+                let arrFileName = file.name.split(".");
+                for (let i = 0; i < arrFileName.length; i++) {
+                    fileExtension = arrFileName[i];
+                }
+
+                for (let i = 0; i < this.extensionsAllowed.length; i++) {
+                    //console.log('extensionAllowed', this.extensionsAllowed[i]);
+                    if (fileExtension == this.extensionsAllowed[i]) allow = true;
+                }
+
+                if (allow) {
+                    this.selectedFiles = target.files; 
+                    
+                    if (target.files.length == 1) {
+                        reader.readAsDataURL(file);
+                        reader.onload = (myevent) => {
+                            //console.log("myevent", myevent);                                
+                            //console.log("fileExtension", fileExtension);
+                            //console.log("file.name", file.name);
+                            switch(fileExtension) {
+                                case 'doc': case 'docx':
+                                    this.fondoUrl = "/assets/images/doc.png";
+                                    break;
+                                case 'pdf':
+                                    this.fondoUrl = "/assets/images/pdf.png";
+                                    break;
+                                case 'xls': case 'xlsx':
+                                    this.fondoUrl = "/assets/images/xls.png";
+                                    break;
+                                case "ppt": case "pptx":
+                                    this.fondoUrl = "/assets/images/ppt.png";
+                                    break;
+                                case "dwg":
+                                    this.fondoUrl = "/assets/images/dwg.png";
+                                    break;
+                                default:
+                                    this.fondoUrl = reader.result;
+                            }
+                        }
+                    } else {                    
+                        this.textFileUploads.push({"name": file.name});
+                        console.log('file.name', file.name);
+                    }                    
+                } else {
+                    alert("Tipo no permitido");
+                    return;
+                }
+            }                        
+        }
+    }
+
     guardar() {
         try {
-            let file: File;
-            let fileData = "0";
-
-            console.log("postData - logotipos.crear-nuevo.component");            
-            
-            // nuevo archivo
             if (!this.selectedFiles) {
                 alert("Selecciona un archivo.");
                 return;
             }
-            fileData = "1";
-            file = this.selectedFiles.item(0);
-            
-            this.spinner = true;
-            let form: FormData = new FormData();
-            let apiKey = new Constant().API_KEY;            
-            let fileExtension = "";
-            let arrFileName = file.name.split(".");
-            let isImage = false;
-            for (let i = 0; i < arrFileName.length; i++) {
-                fileExtension = arrFileName[i];
-            }
-            for (let i = 0; i < this.imageExtension.length; i++) {
-                console.log('extensionAllowed', this.imageExtension[i]);
-                if (fileExtension == this.imageExtension[i]) isImage = true;
-            }
-            
-            console.log("extension", fileExtension);
-            form.append("api_key", apiKey);
-            form.append("file", file);            
-            form.append("name", this.nombreLogotipo); 
-            if (isImage)            {
-                form.append("type", "imagen");
-            } else {
-                form.append("type", "otro");
-            }
-            form.append("folder", this.folderName);
-            form.append("url", this.imageUrl);
-            form.append("cid", this.clienteId.toString()); // cliente id
-            form.append("pid", this.proyectoId.toString()); // proyecto id
-                        
-            this.requestService.uploadFile("upload", form).subscribe(response => {
-                console.log("requestService", response);
-                if (response.error) {
-                    console.log("requestService", response.error);
-                } else {
-                    console.log("requestService", response);
-                    if (response[0].resultado == "OK") {
-                        // update interface
-                        this.spinner = false;
-                        this.fondoUrl = null;
-                        this.selectedFiles = null;
-                        this.getData();
-                        //alert("archivo subido correctamente");
-                        //this.dialogRef.close("UPDATE_INTERFACE");
-                    } else {
-                        alert(response[0].resultado);
-                        //this.dialogRef.close("");
-                    }
+            let total: number = this.selectedFiles.length;
+            console.log('guardar total', total);
+            for (let i = 0; i < total; i++) {
+                let file: File;                
+                file = this.selectedFiles.item(i);                
+                this.spinner = true;
+                let form: FormData = new FormData();
+                let apiKey = new Constant().API_KEY;            
+                let fileExtension = "";
+                let arrFileName = file.name.split(".");
+                let isImage = false;
+
+                for (let i = 0; i < arrFileName.length; i++) {
+                    fileExtension = arrFileName[i];
                 }
-            });
+                for (let i = 0; i < this.imageExtension.length; i++) {
+                    console.log('extensionAllowed', this.imageExtension[i]);
+                    if (fileExtension == this.imageExtension[i]) isImage = true;
+                }
+                
+                console.log("extension", fileExtension);
+                form.append("api_key", apiKey);
+                form.append("file", file);            
+                form.append("name", this.nombreLogotipo); 
+                if (isImage)            {
+                    form.append("type", "imagen");
+                } else {
+                    form.append("type", "otro");
+                }
+                form.append("folder", this.folderName);
+                form.append("url", this.imageUrl);
+                form.append("cid", this.clienteId.toString()); // cliente id
+                form.append("pid", this.proyectoId.toString()); // proyecto id
+                            
+                this.requestService.uploadFile("upload", form).subscribe(response => {
+                    console.log("requestService", response);
+                    if (response.error) {
+                        console.log("requestService", response.error);
+                    } else {
+                        //console.log("requestService", response);
+                        if (response[0].resultado == "OK") {
+                            if (i == total - 1) {
+                                // update interface
+                                this.spinner = false;
+                                this.fondoUrl = null;
+                                this.selectedFiles = null;
+                                this.textFileUploads = [];
+                                this.getData();
+                                //alert("archivo subido correctamente");
+                                //this.dialogRef.close("UPDATE_INTERFACE");
+                            }                
+                        } else {
+                            //alert(response[0].resultado);
+                            console.log('error_upload', response[0].resultado);
+                            //this.dialogRef.close("");
+                        }
+                    }
+                });
+            }
+            
         } catch (error) {
             console.log(error);
         }

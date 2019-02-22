@@ -33,7 +33,7 @@ export class LoginComponent {
     ];
     this.requestService.getRequest("login", data).subscribe(
         result => {
-            console.log(this.TAG, result);
+            //console.log(this.TAG, result);
             if (result.error) {
               alert(result.error);
               this.resetForm();

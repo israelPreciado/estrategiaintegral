@@ -45,10 +45,10 @@ export class ProyectosComponent implements OnInit {
                 {"uid": localStorage.getItem("uid")},
                 {"cid": this.clienteId}
             ];
-            console.log('data', data);
+            //console.log('data', data);
             this.requestService.getRequest("listado-proyectos", data).subscribe(
                 result => {
-                    console.log(this.TAG, result);
+                    //console.log(this.TAG, result);
                     this.proyectos = [];
                     for (let element of result) {
                         this.proyectos.push(new Proyecto(element.cliente_id, element.proyecto_id, element.nombre));

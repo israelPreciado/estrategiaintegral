@@ -48,7 +48,7 @@ export class FormClienteComponent implements OnInit {
             ];
 
             this.requestService.getRequest("listado-clientes", data).subscribe(response => {
-                console.log(this.TAG, response);
+                //console.log(this.TAG, response);
                 this.itemNombre = response[0].nombre;
                 this.itemApPat = response[0].ap_pat;
                 this.itemApMat = response[0].ap_mat;
@@ -85,9 +85,9 @@ export class FormClienteComponent implements OnInit {
             {"email": this.itemEmail}
         ];      
         
-        console.log(this.TAG, data);
+        //console.log(this.TAG, data);
         this.requestService.getRequest("form-cliente", data).subscribe(response => {
-            console.log(this.TAG, response);
+            //console.log(this.TAG, response);
             if (response.error) {
                 alert(response.error);
             } else {
